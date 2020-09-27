@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace capstone.Data.Migrations
+namespace capstone.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class BillBoardMusicList : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -78,6 +78,34 @@ namespace capstone.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersistedGrants", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Students",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teachers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teachers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,6 +214,66 @@ namespace capstone.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "BillBoardMusicListMembers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Artist = table.Column<string>(nullable: true),
+                    Song = table.Column<string>(nullable: true),
+                    Duration = table.Column<string>(nullable: true),
+                    Genre = table.Column<string>(nullable: true),
+                    IsActiveMember = table.Column<bool>(nullable: false),
+                    Membersince = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BillBoardMusicListMembers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BillBoardMusicListMembers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 1, "Real McCoy", "1995", "Eurodance", true, new DateTime(1993, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Another night", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 2, "Boyz 2 Men", "1995", "R&B", true, new DateTime(1994, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "I'll Make Love to You", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 3, "All for one", "1995", "R&B", true, new DateTime(1995, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), "I can love you like that", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 4, "Blessed Union of Souls", "1995", "Alternative Rock", true, new DateTime(1995, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "I believe", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 5, "Melissa Etheridge", "1995", "Rock", true, new DateTime(1993, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "I'm the Only One", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 6, "4 P.M.", "1995", "Pop", true, new DateTime(1994, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sukiyaki", null });
+
+            migrationBuilder.InsertData(
+                table: "BillBoardMusicListMembers",
+                columns: new[] { "Id", "Artist", "Duration", "Genre", "IsActiveMember", "Membersince", "Song", "UserId" },
+                values: new object[] { 7, "Groove Theory", "1995", "R&B", true, new DateTime(1995, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Tell Me", null });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -222,6 +310,11 @@ namespace capstone.Data.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BillBoardMusicListMembers_UserId",
+                table: "BillBoardMusicListMembers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DeviceCodes_DeviceCode",
@@ -263,10 +356,19 @@ namespace capstone.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BillBoardMusicListMembers");
+
+            migrationBuilder.DropTable(
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
                 name: "PersistedGrants");
+
+            migrationBuilder.DropTable(
+                name: "Students");
+
+            migrationBuilder.DropTable(
+                name: "Teachers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

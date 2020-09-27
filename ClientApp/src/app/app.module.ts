@@ -24,8 +24,7 @@ import { BBLMComponent } from './bblm/bblm.component';
     CounterComponent,
     FetchDataComponent,
     StudentsComponent,
-    TeacherComponent,
-    BBLMComponent
+    TeacherComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +37,7 @@ import { BBLMComponent } from './bblm/bblm.component';
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
         { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
-        { path: 'BillBoardMusicList', component: BBLMComponent}
+        { path: 'BillBoardMusicList', component: BBLMComponent, canActivate: [AuthorizeGuard] }
     ])
   ],
   providers: [

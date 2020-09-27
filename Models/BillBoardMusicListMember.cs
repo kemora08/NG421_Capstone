@@ -13,10 +13,11 @@ namespace capstone.Models
         [Key]
         public int Id { get; set; }
         public string Artist { get; set; }
-        public string song { get; set; }
-        public string duration { get; set; }
-        public int Genre { get; set; }
+        public string Song { get; set; }
+        public string Duration { get; set; }
+        public string Genre { get; set; }
         public bool IsActiveMember { get; set;}
+        public DateTime Membersince { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
        }
