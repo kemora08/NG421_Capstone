@@ -1,1 +1,26 @@
-<p>bill-board-music-list works!</p>
+<h1 id="tableLabel">Billboard Musiclist Members</h1>
+
+<p *ngIf="!BillBoardMusicListMembers"><em>loading...</em></p>
+
+<table class="table table-stripped" *ngIf="BillBoardMusicListMembers">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Artist</th>
+            <th>Song</th>
+            <th>Duration</th>
+            <th>Genre</th>
+            <th>Member Since</th>
+            <th>Active Member?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of BillBoardMusicListMembers"></tr>
+        <td>{{ <s></s>.Id }}</td>
+        <td>{{ <s></s>.Artist }}</td>
+        <td>{{ <s></s>.Song }}</td>
+        <td>{{ <s></s>.Duration }}</td>
+        <td>{{ <s></s>.Genre }}</td>
+        <td>{{ <s></s><div class memberSince="membersince"></div> }}</td>
+        <td>{{ <s></s>.isActiveMember="Yes": "No"}}</td>
+</table>
