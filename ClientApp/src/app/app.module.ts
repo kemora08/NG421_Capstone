@@ -15,6 +15,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
 import { BBLMComponent } from './bblm/bblm.component';
+import { BillBoardMusicListComponent } from './bill-board-music-list/bill-board-music-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { BBLMComponent } from './bblm/bblm.component';
     CounterComponent,
     FetchDataComponent,
     StudentsComponent,
-    TeacherComponent
+    TeacherComponent,
+    BBLMComponent,
+    BillBoardMusicListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
