@@ -14,7 +14,6 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
-import { BBLMComponent } from './bblm/bblm.component';
 import { BillBoardMusicListComponent } from './bill-board-music-list/bill-board-music-list.component';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { BillBoardMusicListComponent } from './bill-board-music-list/bill-board-
     FetchDataComponent,
     StudentsComponent,
     TeacherComponent,
-    BBLMComponent,
     BillBoardMusicListComponent
   ],
   imports: [
@@ -40,7 +38,7 @@ import { BillBoardMusicListComponent } from './bill-board-music-list/bill-board-
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
         { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
-        { path: 'BillBoardMusicList', component: BBLMComponent, canActivate: [AuthorizeGuard] }
+        { path: 'BillBoardMusicList', component: BillBoardMusicListComponent }
     ])
   ],
   providers: [

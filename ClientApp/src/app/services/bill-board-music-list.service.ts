@@ -11,6 +11,6 @@ export class BillBoardMusicListService {
              @Inject('BASE_URL')private baseURL: string) { }
 
   public async getMembers(): Promise<BillBoardMusicListMember[]> {
-    return this.httpClient.get<BillBoardMusicListMember[]>('{$this.baseURL}BillBoardMusicListMembers').toPromise();
+    return this.httpClient.get<BillBoardMusicListMember[]>(`${this.baseURL}BBLM`).toPromise();
   }
 }

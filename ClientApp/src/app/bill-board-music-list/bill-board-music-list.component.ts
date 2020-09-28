@@ -8,13 +8,23 @@ import { BillBoardMusicListService } from '../services/bill-board-music-list.ser
   styleUrls: ['./bill-board-music-list.component.css']
 })
 export class BillBoardMusicListComponent implements OnInit {
-  [x: string]: any;
+  public bbml: BillBoardMusicList[];
+  public newBillBoardMusicList: BillBoardMusicList = {firstName: '', lastName: ''};
 
-  public BillBoardMusicListMembers: BillBoardMusicListMember;
+  public BillBoardMusicListMembers: BillBoardMusicListMember[];
+  newBillBoardMusicList: any;
+  http: any;
+  baseUrl: string;
+  billboardmusiclist: any;
   constructor(private BBLMService: BillBoardMusicListService) { }
 
   async ngOnInit() {
-    this.BillBoardMusicListMembers = await this.BillBoardListMusicService.getMembers();
+    this.BillBoardMusicListMembers = await this.BBLMService.getMembers();
   }
+  async save() {
+    await this.http.post<BillBoardMusicList[]>(this.baseUrl + 'BillBoardMusicList', this.BillBoardMusicList).toPromise();
+    this.newBillBoardMusicList = { firstName: '', lastName: ''};
+    this.BillBoardMusicList = await this.http.get<this.BillBoardMusicList[] > (this.baseUrl + 'BillBoardMusicList'); toPromise();
 
+  }
 }
