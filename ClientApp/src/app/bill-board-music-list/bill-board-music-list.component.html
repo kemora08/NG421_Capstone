@@ -1,0 +1,32 @@
+<h1 id="tableLabel">Billboard Musiclist Members</h1>
+
+<p *ngIf="!BillBoardMusicListMembers"><em>loading...</em></p>
+
+<table class="table table-stripped" *ngIf="BillBoardMusicListMembers">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Artist</th>
+            <th>Song</th>
+            <th>Duration</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of BillBoardMusicListMembers">
+        <td>{{ s.id }}</td>
+        <td>{{ s.artist }}</td>
+        <td>{{ s.song }}</td>
+        <td>{{ s.duration }}</td>
+        <td>{{ s.genre }}</td>
+    </tr>
+</table>
+Artist
+<input [(ngModel)]="newBillBoardMusicList.artist" name="Artist" />
+Song
+<input [(ngModel)]="newBillBoardMusicList.song" name="Song" />
+Duration
+<input [(ngModel)]="newBillBoardMusicList.duration" name="Duration" />
+Genre
+<input [(ngModel)]="newBillBoardMusicList.genre" name="Genre" />
+<button (click)="save()">Save</button>
