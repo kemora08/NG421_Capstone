@@ -21,12 +21,12 @@ namespace capstone.Controllers
         [HttpGet]
         public IEnumerable<BillBoardMusicListMember> Get()
         {
-           return _context.BillBoardMusicListMembers.ToArray();
+           return _context.MusicMembers.ToArray();
         }
         [HttpPost]
         public BillBoardMusicListMember Post([FromBody] BillBoardMusicListMember Member)
         {
-            _context.BillBoardMusicListMembers.Add(Member);
+            _context.MusicMembers.Add(Member);
             _context.SaveChanges();
             return Member;
         }
