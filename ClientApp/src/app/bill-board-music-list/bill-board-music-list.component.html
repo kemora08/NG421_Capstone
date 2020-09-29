@@ -15,18 +15,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let s of BillBoardMusicListMembers">
-        <td>{{ s.Id }}</td>
-        <td>{{ s.Artist }}</td>
-        <td>{{ s.Song }}</td>
-        <td>{{ s.Duration }}</td>
-        <td>{{ s.Genre }}</td>
-        <td>{{ s.Membersince}}</td>
-        <td>{{ s.IsActiveMember}}</td>
-    </tr>
+        <tr *ngFor="let s of BillBoardMusicListMembers"></tr>
+        <td>{{ <s></s>.Id }}</td>
+        <td>{{ <s></s>.Artist }}</td>
+        <td>{{ <s></s>.Song }}</td>
+        <td>{{ <s></s>.Duration }}</td>
+        <td>{{ <s></s>.Genre }}</td>
+        <td>{{ <s></s><div class memberSince="membersince"></div> }}</td>
+        <td>{{ <s></s>.isActiveMember="Yes": "No"}}</td>
 </table>
-First Name
-<input [(ngModel)]="newBillBoardMusicList.firstName" name="firstName" />
-Last Name
-<input [(ngModel)]="newBillBoardMusicList.lastName" name="lastName" />
-<button (click)="save()">Save</button>

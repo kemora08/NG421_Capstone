@@ -1,12 +1,12 @@
-
+import { StringifyOptions } from "querystring";
 
 export interface BillBoardMusicListMember {
-    Id: string;
+    id: string;
     Artist: string;
     Song: string;
     Duration: string;
     Genre: string;
     Membersince: Date;
-    IsActiveMember: boolean;
+    IsActiceMember: boolean;
 
 }
