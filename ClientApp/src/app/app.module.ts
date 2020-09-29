@@ -14,7 +14,6 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
-import { BBLMComponent } from './bblm/bblm.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { BBLMComponent } from './bblm/bblm.component';
     CounterComponent,
     FetchDataComponent,
     StudentsComponent,
-    TeacherComponent,
-    BBLMComponent
+    TeacherComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +36,6 @@ import { BBLMComponent } from './bblm/bblm.component';
         { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
         { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
         { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
-        { path: 'BillBoardMusicList', component: BBLMComponent}
     ])
   ],
   providers: [
