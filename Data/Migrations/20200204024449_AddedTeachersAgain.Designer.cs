@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using capstone.Data;
 
-namespace capstone.Migrations
+namespace capstone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200204024449_AddedTeachersAgain")]
+    partial class AddedTeachersAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -294,112 +296,6 @@ namespace capstone.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("capstone.Models.BillBoardMusicListMember", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Artist")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Duration")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Genre")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsActiveMember")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Membersince")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Song")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("BillBoardMusicListMembers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Artist = "Real McCoy",
-                            Duration = "1995",
-                            Genre = "Eurodance",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1993, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "Another night"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Artist = "Boyz 2 Men",
-                            Duration = "1995",
-                            Genre = "R&B",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1994, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "I'll Make Love to You"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Artist = "All for one",
-                            Duration = "1995",
-                            Genre = "R&B",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1995, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "I can love you like that"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Artist = "Blessed Union of Souls",
-                            Duration = "1995",
-                            Genre = "Alternative Rock",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1995, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "I believe"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Artist = "Melissa Etheridge",
-                            Duration = "1995",
-                            Genre = "Rock",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1993, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "I'm the Only One"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Artist = "4 P.M.",
-                            Duration = "1995",
-                            Genre = "Pop",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1994, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "Sukiyaki"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Artist = "Groove Theory",
-                            Duration = "1995",
-                            Genre = "R&B",
-                            IsActiveMember = true,
-                            Membersince = new DateTime(1995, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Song = "Tell Me"
-                        });
-                });
-
             modelBuilder.Entity("capstone.Models.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -415,6 +311,26 @@ namespace capstone.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Jon",
+                            LastName = "Smith"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Bobby",
+                            LastName = "Miller"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FirstName = "Sarah",
+                            LastName = "Brooks"
+                        });
                 });
 
             modelBuilder.Entity("capstone.Models.Teacher", b =>
@@ -432,6 +348,26 @@ namespace capstone.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Sam",
+                            LastName = "Smith"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Tom",
+                            LastName = "Miller"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FirstName = "Mary",
+                            LastName = "Brooks"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -483,13 +419,6 @@ namespace capstone.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("capstone.Models.BillBoardMusicListMember", b =>
-                {
-                    b.HasOne("capstone.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
