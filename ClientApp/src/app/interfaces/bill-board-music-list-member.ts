@@ -1,7 +1,7 @@
 
 
 export interface BillBoardMusicListMember {
-    Id: string;
+    Id: number;
     Artist: string;
     Song: string;
     Duration: string;

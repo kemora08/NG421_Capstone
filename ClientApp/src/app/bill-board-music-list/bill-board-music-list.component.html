@@ -25,8 +25,18 @@
         <td>{{ s.IsActiveMember}}</td>
     </tr>
 </table>
-First Name
-<input [(ngModel)]="newBillBoardMusicList.firstName" name="firstName" />
-Last Name
-<input [(ngModel)]="newBillBoardMusicList.lastName" name="lastName" />
+Id
+<input [(ngModel)]="newBillBoardMusicList" name="Id" />
+Artist
+<input [(ngModel)]="newBillBoardMusicList.Artist" name="Artist" />
+Song
+<input [(ngModel)]="newBillBoardMusicList.Song" name="Song" />
+Duration
+<input [(ngModel)]="newBillBoardMusicList.Duration" name="Duration" />
+Genre
+<input [(ngModel)]="newBillBoardMusicList.Genre" name="Genre" />
+Member since
+<input [(ngModel)]="newBillBoardMusicList.Membersince" name="Membersince" />
+Active Member
+<input [(ngModel)]="newBillBoardMusicList.IsActiveMember" name="Duration" />
 <button (click)="save()">Save</button>

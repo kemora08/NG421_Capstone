@@ -8,23 +8,42 @@ import { BillBoardMusicListService } from '../services/bill-board-music-list.ser
   styleUrls: ['./bill-board-music-list.component.css']
 })
 export class BillBoardMusicListComponent implements OnInit {
-  public bbml: BillBoardMusicList[];
-  public newBillBoardMusicList: BillBoardMusicList = {firstName: '', lastName: ''};
+  public bbml: BillBoardMusicListMember[];
+  public newBillBoardMusicList: BillBoardMusicListMember = {
+    Id: 1,
+    Artist: '',
+    Song: '',
+    Duration: '',
+    Genre: '',
+    Membersince: null,
+    IsActiveMember: true
+   };
+
 
   public BillBoardMusicListMembers: BillBoardMusicListMember[];
-  newBillBoardMusicList: any;
+  public newBillBoardMusicListMembers: any;
   http: any;
   baseUrl: string;
   billboardmusiclist: any;
   constructor(private BBLMService: BillBoardMusicListService) { }
 
+
   async ngOnInit() {
     this.BillBoardMusicListMembers = await this.BBLMService.getMembers();
   }
   async save() {
-    await this.http.post<BillBoardMusicList[]>(this.baseUrl + 'BillBoardMusicList', this.BillBoardMusicList).toPromise();
-    this.newBillBoardMusicList = { firstName: '', lastName: ''};
-    this.BillBoardMusicList = await this.http.get<this.BillBoardMusicList[] > (this.baseUrl + 'BillBoardMusicList'); toPromise();
+    await this.BBLMService.getMembers();
+    this.newBillBoardMusicListMembers = {
+      Id: '',
+      Artist: '',
+      Song: '',
+      Duration: '',
+      Genre: '',
+      Membersince: null,
+      IsActiveMember: true
+     };
+    this.billboardmusiclist = await this.http.get.this.billboardmusiclist > (this.baseUrl + 'BillBoardMusicList');
 
   }
+
 }
