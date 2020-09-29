@@ -35,8 +35,7 @@ namespace capstone.Data
             .HasData(
                 new BillBoardMusicListMember 
                 { 
-                    Id = 1,
-                    Artist = "Real McCoy",
+                    Id = 1, Artist = "Real McCoy",
                     Song = "Another night", 
                     Duration = "1995", 
                     Genre = "Eurodance", 
@@ -45,8 +44,7 @@ namespace capstone.Data
                     },
                     new BillBoardMusicListMember 
                     {
-                       Id = 2,
-                       Artist = "Boyz 2 Men",
+                       Id = 2, Artist = "Boyz 2 Men",
                        Song = "I'll Make Love to You",
                        Duration = "1995", 
                        Genre = "R&B", 
@@ -55,8 +53,7 @@ namespace capstone.Data
                       },
                       new BillBoardMusicListMember
                       {
-                          Id = 3,
-                          Artist = "All for one",
+                          Id = 3, Artist = "All for one",
                           Song = "I can love you like that",
                           Duration = "1995",
                           Genre = "R&B", 
@@ -65,8 +62,7 @@ namespace capstone.Data
                       },
                       new BillBoardMusicListMember
                       {
-                         Id = 4,
-                         Artist = "Blessed Union of Souls",
+                         Id = 4, Artist = "Blessed Union of Souls",
                          Song = "I believe",
                          Duration = "1995", 
                          Genre = "Alternative Rock", 
@@ -75,8 +71,7 @@ namespace capstone.Data
                       },
                       new BillBoardMusicListMember
                       {
-                         Id = 5, 
-                         Artist = "Melissa Etheridge",
+                         Id = 5, Artist = "Melissa Etheridge",
                          Song = "I'm the Only One",
                          Duration = "1995", 
                          Genre = "Rock", 
@@ -85,8 +80,7 @@ namespace capstone.Data
                       },
                       new BillBoardMusicListMember
                       {
-                         Id = 6,
-                         Artist = "4 P.M.",
+                         Id = 6, Artist = "4 P.M.",
                          Song = "Sukiyaki",
                          Duration = "1995", 
                          Genre = "Pop", 
@@ -95,8 +89,7 @@ namespace capstone.Data
                       },
                       new BillBoardMusicListMember
                       {
-                         Id = 7,
-                         Artist = "Groove Theory",
+                         Id = 7, Artist = "Groove Theory",
                          Song = "Tell Me",
                          Duration = "1995", 
                          Genre = "R&B", 
