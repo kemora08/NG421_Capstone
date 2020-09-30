@@ -8,7 +8,6 @@ import { BillBoardMusicListService } from '../services/bill-board-music-list.ser
   styleUrls: ['./bill-board-music-list.component.css']
 })
 export class BillBoardMusicListComponent implements OnInit {
-  public bbml: BillBoardMusicListMember[];
   public newBillBoardMusicList: BillBoardMusicListMember = {
     artist: '',
     song: '',
@@ -16,16 +15,16 @@ export class BillBoardMusicListComponent implements OnInit {
     genre: '',
    };
 
-
   public BillBoardMusicListMembers: BillBoardMusicListMember[];
   constructor(private BBLMService: BillBoardMusicListService) { }
-
 
   async ngOnInit() {
     this.BillBoardMusicListMembers = await this.BBLMService.getMembers();
   }
+
   async save() {
-    await this.BBLMService.getMembers();
+    await this.BBLMService.addMember(this.newBillBoardMusicList);
+    this.BillBoardMusicListMembers.push(this.newBillBoardMusicList);
   }
 
 }

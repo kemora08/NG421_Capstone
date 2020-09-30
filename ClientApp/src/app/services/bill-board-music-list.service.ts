@@ -13,4 +13,8 @@ export class BillBoardMusicListService {
   public async getMembers(): Promise<BillBoardMusicListMember[]> {
     return this.httpClient.get<BillBoardMusicListMember[]>(`${this.baseURL}BBLM`).toPromise();
   }
+
+  public async addMember(newMember: BillBoardMusicListMember) {
+    return this.httpClient.post<BillBoardMusicListMember>(`${this.baseURL}BBLM`, newMember).toPromise();
+  }
 }
